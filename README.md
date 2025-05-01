@@ -37,13 +37,17 @@ cd conecta-eventos
 npm install
 ```
 
-### 3. Crie um banco de dados MySQL e configure o arquivo .env:
+### 3. Configure o banco de dados
 
+Crie um banco de dados MySQL e configure o arquivo `.env`:
+
+```env
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=sua_senha
 DB_NAME=conecta_eventos
 DB_PORT=3306
+````
 
 ### 4. Rode a aplicação:
 ```bash
