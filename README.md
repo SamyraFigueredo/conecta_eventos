@@ -1,6 +1,6 @@
 # 📅 Conecta Eventos
 
-Sistema completo para organização e gerenciamento de eventos, desenvolvido com Node.js, Express, MySQL e Sequelize.
+Sistema para organização e gerenciamento de eventos, desenvolvido com Node.js, Express, MySQL e Sequelize.
 
 ## ✨ Funcionalidades
 
