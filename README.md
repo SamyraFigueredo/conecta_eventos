@@ -1,6 +1,8 @@
-# 📅 Conecta Eventos
+# 📅 Conecta Eventos – Plataforma de Organização de Eventos
 
-Sistema para organização e gerenciamento de eventos, desenvolvido com Node.js, Express, MySQL e Sequelize.
+Sistema completo para organização e gerenciamento de eventos, desenvolvido com Node.js, Express, MySQL e Sequelize.
+
+---
 
 ## ✨ Funcionalidades
 
@@ -10,6 +12,16 @@ Sistema para organização e gerenciamento de eventos, desenvolvido com Node.js,
 - Sistema de **inscrição** com verificação
 - **Notificações** e **lembretes automáticos**
 - Geração e **emissão de certificados** com autenticação eletrônica
+
+---
+
+## ✅ Pré-requisitos:
+
+Antes de começar, você vai precisar ter instalado em sua máquina:
+
+- [Node.js](https://nodejs.org/) (v18 ou superior)
+- [MySQL](https://www.mysql.com/) (v8 ou superior)
+- npm (ou [yarn](https://yarnpkg.com/))
 
 ---
 
@@ -23,12 +35,14 @@ Sistema para organização e gerenciamento de eventos, desenvolvido com Node.js,
 - [JWT (para autenticação)](https://jwt.io/) *(opcional)*
 - [nodemailer](https://nodemailer.com/) *(para envio de e-mails)*
 
+---
+
 ## ⚙️ Como Executar Localmente
 
-### 1. Clone o repositório:
+### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/conecta-eventos.git
+git clone https://github.com/SEU-USUARIO/conecta-eventos.git
 cd conecta-eventos
 ```
 
@@ -47,9 +61,26 @@ DB_USER=root
 DB_PASSWORD=sua_senha
 DB_NAME=conecta_eventos
 DB_PORT=3306
-````
+```
 
-### 4. Rode a aplicação:
+### 4. Rode as migrations (caso aplicável):
+
+```bash
+npx sequelize-cli db:migrate
+```
+
+### 5. (Opcional) Rode os seeders:
+
+```bash
+npx sequelize-cli db:seed:all
+```
+
+### 6. Inicie a aplicação
+
 ```bash
 npm start
 ```
+
+## 📄 Licença
+
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
