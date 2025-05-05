@@ -80,7 +80,3 @@ npx sequelize-cli db:seed:all
 ```bash
 npm start
 ```
-
-## 📄 Licença
-
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
