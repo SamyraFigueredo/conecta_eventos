@@ -26,7 +26,6 @@ tipo_usuario: {
 }
 }, {
 tableName: 'Usuario',
-timestamps: false
 });
 
 module.exports = Usuario;
