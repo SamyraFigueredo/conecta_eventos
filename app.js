@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
-const sequelize = require('./database.js');
+const sequelize = require('./src/config/database.js');
 
 app.use(express.json());
 
-const models = require('./src/models');
+const models = require('./src/models/associations.js');
 
 const PORT = process.env.PORT || 3000;
 
