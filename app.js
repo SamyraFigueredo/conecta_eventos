@@ -1,10 +1,17 @@
 const express = require('express');
-const app = express();
 const sequelize = require('./src/config/database.js');
+const models = require('./src/models/associations.js');
+
+const app = express();
 
 app.use(express.json());
 
-const models = require('./src/models/associations.js');
+// Rotas
+const usuarioRoutes = require('./src/routes/usuarioRoutes.js');
+const authRoutes = require('./src/routes/authRoutes.js');
+
+app.use('/usuarios', usuarioRoutes);
+app.use('/auth', authRoutes);
 
 const PORT = process.env.PORT || 3000;
 
