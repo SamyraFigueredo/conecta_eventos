@@ -136,13 +136,13 @@ http://localhost:3000
       <a href="https://github.com/robertoferreira7">
         <img src="https://github.com/robertoferreira7.png" width="100px;" alt="Foto de perfil do Roberto Ferreira de Assis Filho no GitHub"/><br>
         <sub>
-          <b>Roberto Ferreira de Assis Filho</b>
+          <b>Roberto Ferreira</b>
         </sub>
       </a>
     </td>
     <td align="center">
-      <a href="h">
-        <img src=><br>
+      <a href="https://github.com/LaianeBarreto">
+        <img src="https://github.com/LaianeBarreto.png" width="100px;" alt="Foto de perfil de Laiane Barreto"<br>
         <sub>
           <b>Laiane Barreto</b>
         </sub>
