@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recuperar Senha - Conecta Eventos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #2c3e50;
+    }
+
+    header {
+      background-color: #2f4054;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 30px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-entrar-top {
+      background-color: white;
+      color: #2f4054;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 4rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .texto-info {
+      max-width: 500px;
+    }
+
+    .texto-info h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #2f4054;
+    }
+
+    .texto-info p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-container {
+      max-width: 350px;
+      width: 100%;
+    }
+
+    .form-container h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #2f4054;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #2f4054;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .btn-recuperar {
+      width: 100%;
+      background-color: #2f4054;
+      color: white;
+      padding: 12px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 1rem;
+    }
+
+    .voltar {
+      text-align: center;
+    }
+
+    .voltar a {
+      color: #2f4054;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .voltar a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      padding: 1.5rem 0 0.5rem;
+      border-top: 1px solid #ccc;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+      }
+
+      .form-container {
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="/images/logo.png" alt="Logo Conecta Eventos" />
+      <strong>CONECTA EVENTOS</strong>
+    </div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/eventos">Eventos</a>
+      <a href="/criar">Criar Eventos</a>
+      <a href="/inscritos">Eventos Inscritos</a>
+    </nav>
+    <button class="btn-entrar-top">Entrar</button>
+  </header>
+
+  <main class="container">
+    <div class="texto-info">
+      <h1>Simplifique a Gestão dos seus Eventos</h1>
+      <p>
+        Crie, atualize e acompanhe eventos com facilidade usando nosso sistema intuitivo.<br/>
+        Comece agora a organizar seus eventos com mais eficiência!
+      </p>
+    </div>
+
+    <div class="form-container">
+      <h2>Recuperação de Senha</h2>
+      <form action="/recuperar" method="POST">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Digite o seu e-mail" required />
+        </div>
+
+        <button type="submit" class="btn-recuperar">Enviar email de recuperação</button>
+      </form>
+
+      <div class="voltar">
+        <a href="/login">Voltar para tela de login</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Copyright © 2025 | Conecta Eventos
+  </footer>
+
+</body>
+</html>

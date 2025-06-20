@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Início - Conecta Eventos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #2C3E50;
+    }
+
+    header {
+      background-color: #2C3E50;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 30px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    .btn-sair {
+      background-color: white;
+      color: #2C3E50;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #2C3E50;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
+    .search-bar {
+      margin-bottom: 2rem;
+    }
+
+    .search-bar input {
+      width: 100%;
+      max-width: 300px;
+      padding: 10px 16px;
+      border: 1px solid #bbb;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: #eaf4fc;
+      padding: 1.5rem;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 180px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 5px;
+    }
+
+    .card-text {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .card button {
+      background-color: #2C3E50;
+      color: white;
+      padding: 10px;
+      font-size: 0.9rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card button:hover {
+      background-color: #1f2e3a;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="logobranca.svg" alt="Logo Conecta Eventos" />
+      <strong>CONECTA EVENTOS</strong>
+    </div>
+    <nav>
+      <a href="/" class="active">Home</a>
+      <a href="/eventos">Eventos</a>
+      <a href="/criar">Criar Eventos</a>
+      <a href="/inscritos">Eventos Inscritos</a>
+    </nav>
+    <button class="btn-sair" onclick="logout()">Sair</button>
+  </header>
+
+  <main>
+    <h1>Olá!</h1>
+    <h2>Como podemos te ajudar hoje?</h2>
+
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="🔍 Buscar" oninput="filterCards()" />
+    </div>
+
+    <div class="cards" id="cardsContainer">
+      <div class="card" data-keywords="eventos buscar inscrição">
+        <div class="card-icon">📅</div>
+        <div class="card-title">Eventos</div>
+        <div class="card-text">Explore eventos disponíveis para inscrição</div>
+        <button onclick="navigateTo('/eventos')">Buscar ➔</button>
+      </div>
+
+      <div class="card" data-keywords="inscritos eventos participação">
+        <div class="card-icon">📍</div>
+        <div class="card-title">Eventos Inscritos</div>
+        <div class="card-text">Veja em quais eventos você está participando.</div>
+        <button onclick="navigateTo('/inscritos')">Ver ➔</button>
+      </div>
+
+      <div class="card" data-keywords="criar evento novo">
+        <div class="card-icon">🎤</div>
+        <div class="card-title">Criar Evento</div>
+        <div class="card-text">Organize um novo evento.</div>
+        <button onclick="navigateTo('/criar')">Criar ➔</button>
+      </div>
+
+      <div class="card" data-keywords="gerenciar editar eventos">
+        <div class="card-icon">📋</div>
+        <div class="card-title">Gerenciar Eventos</div>
+        <div class="card-text">Edite os eventos que você criou.</div>
+        <button onclick="navigateTo('/gerenciar')">Gerenciar ➔</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function navigateTo(url) {
+      window.location.href = url;
+    }
+
+    function logout() {
+      // Lógica de logout pode ser adicionada aqui
+      window.location.href = '/login';
+    }
+
+    function filterCards() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+      cards.forEach(card => {
+        const keywords = card.getAttribute("data-keywords");
+        if (keywords.includes(input)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

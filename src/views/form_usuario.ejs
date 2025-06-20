@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<h2><%= usuario ? 'Editar Usuário' : 'Cadastrar Novo Usuário' %></h2>
+
+<form action="<%= usuario ? '/usuarios/editar/' + usuario.id : '/usuarios/novo' %>" method="POST">
+    <label>Nome:</label><br>
+    <input type="text" name="nome" value="<%= usuario ? usuario.nome : '' %>" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" value="<%= usuario ? usuario.email : '' %>" required><br><br>
+
+    <button type="submit" style="padding:0.5rem 1rem; background-color:#2c3e50; color:white; border:none; border-radius:5px;">
+        Salvar
+    </button>
+</form>
+
+<%- include('partials/footer') %>

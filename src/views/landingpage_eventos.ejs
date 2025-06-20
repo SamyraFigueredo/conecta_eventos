@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eventos - Conecta Eventos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #2C3E50;
+    }
+
+    header {
+      background-color: #2C3E50;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 30px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    .btn-sair {
+      background-color: white;
+      color: #2C3E50;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    .highlight {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .highlight-text {
+      max-width: 500px;
+    }
+
+    .highlight-text h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .highlight-text p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .highlight-img img {
+      max-width: 300px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .highlight button {
+      background-color: #2C3E50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .event-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #2C3E50;
+      color: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .event-card:nth-child(even) {
+      background-color: #e74c3c;
+      flex-direction: row-reverse;
+    }
+
+    .event-info {
+      flex: 1;
+      padding: 0 1rem;
+    }
+
+    .event-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .event-date {
+      font-size: 1rem;
+      background-color: transparent;
+      border: 2px solid #f1c40f;
+      color: #f1c40f;
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .event-card:nth-child(even) .event-date {
+      border-color: #fff;
+      color: white;
+    }
+
+    .event-card button {
+      background-color: white;
+      color: #2C3E50;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .event-img img {
+      max-width: 160px;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      padding: 1.5rem 0 0.5rem;
+      border-top: 1px solid #ccc;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .highlight {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .event-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .event-card:nth-child(even) {
+        flex-direction: column;
+      }
+
+      .event-img img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="logobranca.svg" alt="Logo Conecta Eventos" />
+      <strong>CONECTA EVENTOS</strong>
+    </div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/eventos" class="active">Eventos</a>
+      <a href="/criar">Criar Eventos</a>
+      <a href="/inscritos">Eventos Inscritos</a>
+    </nav>
+    <button class="btn-sair" onclick="window.location.href='/login'">Sair</button>
+  </header>
+
+  <main>
+
+    <section class="highlight">
+      <div class="highlight-text">
+        <h2>Descubra Eventos Incríveis. <br> Participe. Conecte-se.</h2>
+        <p>Encontre os melhores eventos, palestras e workshops em um só lugar. Cadastre-se agora e garanta sua vaga nas experiências que vão transformar sua jornada.</p>
+        <button onclick="alert('Inscrição iniciada')">Inscrever</button>
+      </div>
+      <div class="highlight-img">
+        <img src="evento_principal.ejs.svg" alt="Evento principal">
+      </div>
+    </section>
+
+    <section class="event-card">
+      <div class="event-img">
+        <img src="evento_bussines.svg" alt="Business Talks">
+      </div>
+      <div class="event-info">
+        <div class="event-title">BUSINESS <span style="color: #f1c40f;">TALKS</span></div>
+        <div class="event-date">Seg | 10:00 AM | 12 de Junho</div>
+        <button>Inscrever - se</button>
+      </div>
+    </section>
+
+    <section class="event-card">
+      <div class="event-img">
+        <img src="imagen_webnar.svg" alt="Webinar Conference">
+      </div>
+      <div class="event-info">
+        <div class="event-title">WEBINAR <span style="color: #ffd5d5;">CONFERENCE</span></div>
+        <div class="event-date">Seg | 07:00 AM | Mon de Janeiro</div>
+        <button>Inscrever - se</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Copyright © 2025 | Conecta Eventos
+  </footer>
+
+</body>
+</html>
