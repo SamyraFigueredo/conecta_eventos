@@ -118,35 +118,36 @@ http://localhost:3000
 
 ---
 
-## 👨‍💻 Colaboradores
+## Colaboradores
 
 > Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/SamyraFigueredo">
-        <img src="https://github.com/SamyraFigueredo.png" width="100px;" alt="Foto de perfil de Samira Figueredo"/><br>
-        <sub>
-          <b>Samira Figueredo</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/robertoferreira7">
-        <img src="https://github.com/robertoferreira7.png" width="100px;" alt="Foto de perfil do Roberto Ferreira de Assis Filho no GitHub"/><br>
-        <sub>
-          <b>Roberto Ferreira</b>
-        </sub>
-      </a>
-    </td>
-    <td align="center">
       <a href="https://github.com/LaianeBarreto">
-        <img src="https://github.com/LaianeBarreto.png" width="100px;" alt="Foto de perfil de Laiane Barreto"<br>
+        <img src="https://github.com/LaianeBarreto.png" width="100px;" alt="Foto de perfil de Laiane Barreto"/><br>
         <sub>
           <b>Laiane Barreto</b>
         </sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://github.com/SamyraFigueredo">
+        <img src="https://github.com/SamyraFigueredo.png" width="100px;" alt="Foto de perfil de Samyra Figueredo"/><br>
+        <sub>
+          <b>Samyra Figueredo</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/robertoferreira7">
+        <img src="https://github.com/robertoferreira7.png" width="100px;" alt="Foto de perfil de Roberto Ferreira"/><br>
+        <sub>
+          <b>Roberto Ferreira</b>
+        </sub>
+      </a>
+    </td>
   </tr>
 </table>
+
