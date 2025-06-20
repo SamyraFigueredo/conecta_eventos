@@ -101,7 +101,7 @@ http://localhost:3000
 ✔️ Tela de **Login**  
 ✔️ Integração com **Sequelize**  
 ✔️ Banco de dados **MySQL** 
-✔️ **Formulário de inclusão e alteração** de dados  
+✔️ **Formulário de inclusão e alteração** de dados.
 
 ---
 
