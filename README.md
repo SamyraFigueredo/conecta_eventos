@@ -126,7 +126,7 @@ http://localhost:3000
   <tr>
     <td align="center">
       <a href="https://github.com/LaianeBarreto">
-        <img src="https://github.com/LaianeBarreto.png" width="100px;" alt="Foto de perfil de Laiane Barreto"/><br>
+        <img src="" width="100px;" alt="Foto de perfil de Laiane Barreto"/><br>
         <sub>
           <b>Laiane Barreto</b>
         </sub>
