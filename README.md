@@ -96,20 +96,14 @@ npm install
 ```
 
 3. Configure o banco de dados (MySQL ou SQLite) em `/src/config/database.js`.
-
-4. Execute as migrations (se houver):
-
-```bash
-npx sequelize-cli db:migrate
-```
-
-5. Inicie o servidor:
+   
+4. Inicie o servidor:
 
 ```bash
 node app.js
 ```
 
-6. Acesse via navegador:
+5. Acesse via navegador:
 
 ```
 http://localhost:3000
@@ -143,3 +137,34 @@ http://localhost:3000
 ---
 
 ## 👨‍💻 Colaboradores
+
+> Agradecemos às seguintes pessoas que contribuíram para este projeto:
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/SamyraFigueredo">
+        <img src="https://github.com/SamyraFigueredo.png" width="100px;" alt="Foto de perfil de Samira Figueredo"/><br>
+        <sub>
+          <b>Samira Figueredo</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/robertoferreira7">
+        <img src="https://github.com/robertoferreira7.png" width="100px;" alt="Foto de perfil do Roberto Ferreira de Assis Filho no GitHub"/><br>
+        <sub>
+          <b>Roberto Ferreira de Assis Filho</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="h">
+        <img src=><br>
+        <sub>
+          <b>Rodrigo de Oliveira Farias</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
