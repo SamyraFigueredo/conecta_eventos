@@ -162,7 +162,7 @@ http://localhost:3000
       <a href="h">
         <img src=><br>
         <sub>
-          <b>Rodrigo de Oliveira Farias</b>
+          <b>Laiane Barreto</b>
         </sub>
       </a>
     </td>
