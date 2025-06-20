@@ -23,24 +23,6 @@ O projeto também inclui uma área administrativa com manutenção de dados (**C
 - **EJS** (Motor de templates para views)
 - **Sequelize** (ORM para banco de dados)
 - **MySQL** (Banco de dados)
----
-
-## 🎨 Estrutura de Pastas
-
-```
-conecta_eventos/
-├── src/
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   └── config/
-├── views/
-│   ├── partials/
-│   └── *.ejs
-├── public/
-├── app.js
-├── package.json
-└── README.md
 ```
 ## 📷 Principais Telas
 
