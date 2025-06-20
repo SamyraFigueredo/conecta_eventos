@@ -1,7 +1,7 @@
 
 # 📅 Conecta Eventos
 
-Uma aplicação web de gestão de eventos, desenvolvida com **Node.js**, **Express**, **Sequelize**, **EJS** e **MySQL/SQLite**.
+Uma aplicação web de gestão de eventos, desenvolvida com **Node.js**, **Express**, **Sequelize**, **EJS** e **MySQL**.
 
 ## 📝 Descrição
 
