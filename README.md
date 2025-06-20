@@ -142,7 +142,7 @@ http://localhost:3000
     </td>
     <td align="center">
       <a href="https://github.com/robertoferreira7">
-        <img src="" width="100px;" alt="Foto de perfil de Roberto Ferreira"/><br>
+        <img src="https://github.com/robertoferreira7.png" width="100px;" alt="Foto de perfil de Roberto Ferreira"/><br>
         <sub>
           <b>Roberto Ferreira</b>
         </sub>
