@@ -3,9 +3,18 @@ const bcrypt = require('bcrypt');
 
 const usuarioService = {
     async criarUsuario(dadosUsuario) {
-        const hash = await bcrypt.hash(dadosUsuario.senha_hash, 10);
-        dadosUsuario.senha_hash = hash;
-        return Usuario.create(dadosUsuario);
+        const { senha, ...outrosDados } = dadosUsuario;
+
+        if (!senha) {
+            throw new Error('Senha é obrigatória');
+        }
+
+        const senha_hash = await bcrypt.hash(senha, 10);
+
+        return Usuario.create({
+            ...outrosDados,
+            senha_hash
+        });
     },
 
     async listarUsuarios() {
@@ -24,8 +33,9 @@ const usuarioService = {
         const usuario = await Usuario.findByPk(id);
         if (!usuario) return null;
 
-        if (dadosAtualizados.senha_hash) {
-            dadosAtualizados.senha_hash = await bcrypt.hash(dadosAtualizados.senha_hash, 10);
+        if (dadosAtualizados.senha) {
+            dadosAtualizados.senha_hash = await bcrypt.hash(dadosAtualizados.senha, 10);
+            delete dadosAtualizados.senha;
         }
 
         await usuario.update(dadosAtualizados);
