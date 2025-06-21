@@ -30,8 +30,8 @@ app.get('/auth/login', (req, res) => {
     res.render('login');
 });
 
-app.get('/usuarios', (req, res) => {
-    res.render('usuario');
+app.get('/cadastro', (req, res) => {
+    res.render('cadastro');
 });
 
 app.get('/recuperar', (req, res) => {
