@@ -17,9 +17,16 @@ app.use(express.static(path.join(__dirname, 'src/public')));
 // Rotas
 const usuarioRoutes = require('./src/routes/usuarioRoutes.js');
 const authRoutes = require('./src/routes/authRoutes.js');
+const eventoRoutes = require('./src/routes/eventoRoutes.js');
+const programacaoRoutes = require('./src/routes/programacaoRoutes.js');
 
 app.use('/usuarios', usuarioRoutes);
 app.use('/auth', authRoutes);
+app.use('/eventos', eventoRoutes);
+app.use('/programacoes', programacaoRoutes);
+
+// Importar controller para rota de view com dados
+const EventoController = require('./src/controllers/eventoController.js');
 
 // Rota principal que renderiza a view index.ejs
 app.get('/', (req, res) => {
@@ -38,17 +45,18 @@ app.get('/recuperar', (req, res) => {
     res.render('recuperar'); // recuperar.ejs deve estar na pasta views/
 });
 
-app.get('/landingpaje_eventos', (_req, res) => {
-    res.render('landingpaje_eventos');
-});
-
 app.get('/landingpaje', (_req, res) => {
     res.render('landingpaje');
 });
 
-app.get('/eventos_inscritos', (_req, res) => {
-    res.render('leventos_inscritos');
+app.get('/landingpaje_eventos', (_req, res) => {
+    res.render('landingpaje_eventos');
 });
+
+app.get('/eventos', EventoController.listarView);
+
+
+app.get('/eventos_inscritos', EventoController.eventosInscritos);
 
 app.get('/emitir_certificados', (_req, res) => {
     res.render('emitir_certificados');

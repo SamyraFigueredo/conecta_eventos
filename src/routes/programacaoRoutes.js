@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ProgramacaoController = require('../controllers/programacao.controller');
+const ProgramacaoController = require('../controllers/programacaoController.js');
 
 router.get('/', ProgramacaoController.listar);
 router.get('/:id', ProgramacaoController.buscarPorId);

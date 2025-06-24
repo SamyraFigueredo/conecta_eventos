@@ -1,4 +1,4 @@
-const { Evento } = require('../models');
+const { Evento } = require('../models/associations');
 
 const EventoService = {
     async listarTodos() {

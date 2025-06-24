@@ -1,4 +1,4 @@
-const { Programacao, Evento, Usuario } = require('../models');
+const { Programacao, Evento, Usuario } = require('../models/associations');
 
 const ProgramacaoService = {
     async listarTodos() {

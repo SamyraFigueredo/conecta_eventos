@@ -1,4 +1,4 @@
-const ProgramacaoService = require('../services/programacao.service');
+const ProgramacaoService = require('../services/programacaoService.js');
 
 const ProgramacaoController = {
     async listar(req, res) {

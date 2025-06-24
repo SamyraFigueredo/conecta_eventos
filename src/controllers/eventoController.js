@@ -1,4 +1,5 @@
-const EventoService = require('../services/evento.service');
+const EventoService = require('../services/eventoService.js');
+const { Evento } = require('../models/associations');
 
 const EventoController = {
     async listar(req, res) {
@@ -7,6 +8,16 @@ const EventoController = {
             res.status(200).json(eventos);
         } catch (error) {
             res.status(500).json({ mensagem: error.message });
+        }
+    },
+
+    // Nova função para renderizar página eventos.ejs
+    async listarView(req, res) {
+        try {
+            const eventos = await EventoService.listarTodos();
+            res.render('eventos', { eventos });
+        } catch (error) {
+            res.status(500).send('Erro ao carregar eventos');
         }
     },
 
@@ -46,6 +57,15 @@ const EventoController = {
             res.status(204).send();
         } catch (error) {
             res.status(404).json({ mensagem: error.message });
+        }
+    },
+
+    async eventosInscritos(req, res) {
+        try {
+            const eventos = await Evento.findAll();
+            res.render('eventos_inscritos', { eventos });
+        } catch (error) {
+            res.status(500).send('Erro ao carregar eventos');
         }
     }
 };
