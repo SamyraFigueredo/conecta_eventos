@@ -45,11 +45,11 @@ app.get('/recuperar', (req, res) => {
     res.render('recuperar'); // recuperar.ejs deve estar na pasta views/
 });
 
-app.get('/landingpaje', (_req, res) => {
-    res.render('landingpaje');
-});
+app.use('/eventos', eventoRoutes);
 
-app.get('/eventos', EventoController.listarView);
+app.get('/criar', (req, res) => {
+    res.render('criar_evento');
+});
 
 app.get('/eventos_inscritos', EventoController.eventosInscritos);
 
