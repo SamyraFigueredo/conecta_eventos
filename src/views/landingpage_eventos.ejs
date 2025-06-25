@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<%- include('partials/header') %>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eventos - Conecta Eventos</title>
   <style>
+    /* (Seu CSS original permanece igual, aqui não alterei nada para manter o estilo) */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -165,6 +161,14 @@
       border-radius: 8px;
     }
 
+    .inscritos-list {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      background-color: rgba(255, 255, 255, 0.15);
+      padding: 10px;
+      border-radius: 6px;
+    }
+
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -196,26 +200,8 @@
       }
     }
   </style>
-</head>
-
-<body>
-
-  <header>
-    <div class="logo">
-      <img src="src/public/logobranca.svg" alt="Logo Conecta Eventos" />
-      <strong>CONECTA EVENTOS</strong>
-    </div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/eventos" class="active">Eventos</a>
-      <a href="/criar">Criar Eventos</a>
-      <a href="/eventos_inscritos">Eventos Inscritos</a>
-    </nav>
-    <button class="btn-sair" onclick="window.location.href='/login'">Sair</button>
-  </header>
 
   <main>
-
     <section class="highlight">
       <div class="highlight-text">
         <h2>Descubra Eventos Incríveis. <br> Participe. Conecte-se.</h2>
@@ -228,34 +214,51 @@
       </div>
     </section>
 
-    <section class="event-card">
-      <div class="event-img">
-        <img src="/img/evento_bussines.svg" alt="Evento Business" />
-      </div>
-      <div class="event-info">
-        <div class="event-title">BUSINESS <span style="color: #f1c40f;">TALKS</span></div>
-        <div class="event-date">Seg | 10:00 AM | 12 de Junho</div>
-        <button>Inscrever - se</button>
-      </div>
-    </section>
+    <% if (eventos && eventos.length> 0) { %>
+      <% eventos.forEach(function(evento, idx) { %>
+        <section class="event-card">
+          <div class="event-img">
+            <img src="/img/evento_bussines.svg" alt="Imagem do evento" />
+          </div>
+          <div class="event-info">
+            <div class="event-title">
+              <%= evento.nome_evento %>
+            </div>
+            <div class="event-date">
+              <%= new Date(evento.data_inicio).toLocaleDateString('pt-BR', { day:'2-digit', month:'long', year:'numeric'
+                }) %>
+            </div>
+            <p>
+              <%= evento.descricao %>
+            </p>
+            <p><strong>Local:</strong>
+              <%= evento.localizacao %>
+            </p>
+            <button onclick="alert('Você se inscreveu no evento <%= evento.nome_evento %>!')">Inscrever-se</button>
 
-    <section class="event-card">
-      <div class="event-img">
-        <img src="imagen_webnar.svg" alt="Webinar Conference">
-      </div>
-      <div class="event-info">
-        <div class="event-title">WEBINAR <span style="color: #ffd5d5;">CONFERENCE</span></div>
-        <div class="event-date">Seg | 07:00 AM | Mon de Janeiro</div>
-        <button>Inscrever - se</button>
-      </div>
-    </section>
-
+            <!-- Lista de inscritos (exemplo estático, você pode adaptar para dados reais) -->
+            <% if (evento.inscritos && evento.inscritos.length> 0) { %>
+              <div class="inscritos-list">
+                <strong>Inscritos:</strong>
+                <ul>
+                  <% evento.inscritos.forEach(function(usuario) { %>
+                    <li>
+                      <%= usuario.nome_usuario %> (<%= usuario.tipo_usuario %>)
+                    </li>
+                    <% }) %>
+                </ul>
+              </div>
+              <% } %>
+          </div>
+        </section>
+        <% }) %>
+          <% } else { %>
+            <p>Nenhum evento cadastrado no momento.</p>
+            <% } %>
   </main>
 
   <footer>
     Copyright © 2025 | Conecta Eventos
   </footer>
 
-</body>
-
-</html>
+  <%- include('partials/footer') %>
