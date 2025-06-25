@@ -15,7 +15,7 @@ const EventoController = {
     async listarView(req, res) {
         try {
             const eventos = await EventoService.listarTodos();
-            res.render('eventos', { eventos });
+            res.render('landingpage_eventos', { eventos });
         } catch (error) {
             res.status(500).send('Erro ao carregar eventos');
         }
