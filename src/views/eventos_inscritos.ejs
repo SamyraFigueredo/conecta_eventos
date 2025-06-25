@@ -147,7 +147,7 @@
       <a href="/">Home</a>
       <a href="/eventos">Eventos</a>
       <a href="/criar">Criar Eventos</a>
-      <a href="/eventos_inscritos" class="active">Eventos Inscritos</a>
+      <a href="/inscritos" class="active">Eventos Inscritos</a>
     </nav>
     <button class="btn-sair">Sair</button>
   </header>
@@ -155,22 +155,27 @@
   <main>
     <h2>Meus Eventos</h2>
 
-    <% if (eventos && eventos.length > 0) { %>
-      <% eventos.forEach(evento => { %>
-        <div class="evento-inscrito">
-          <div class="evento-info">
-            <img src="<%= evento.imagem || 'default_evento.svg' %>" alt="<%= evento.nome_evento %>">
-            <div>
-              <h3><%= evento.nome_evento %></h3>
-              <p><%= evento.descricao %></p>
-            </div>
-          </div>
-          <button class="btn-certificado">Baixar Certificado</button>
+    <div class="evento-inscrito">
+      <div class="evento-info">
+        <img src="img_we_agricul.svg" alt="Evento 1">
+        <div>
+          <h3>Wbeniar de Agricultura</h3>
+          <p>Explore eventos disponíveis para inscrição</p>
         </div>
-      <% }) %>
-    <% } else { %>
-      <p>Nenhum evento encontrado.</p>
-    <% } %>
+      </div>
+      <button class="btn-certificado">Baixar Certificado</button>
+    </div>
+
+    <div class="evento-inscrito">
+      <div class="evento-info">
+        <img src="img_web_agr_2.svg" alt="Evento 2">
+        <div>
+          <h3>Wbeniar de Agricultura</h3>
+          <p>Explore eventos disponíveis para inscrição</p>
+        </div>
+      </div>
+      <button class="btn-certificado">Baixar Certificado</button>
+    </div>
 
   </main>
 

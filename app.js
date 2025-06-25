@@ -49,12 +49,7 @@ app.get('/landingpaje', (_req, res) => {
     res.render('landingpaje');
 });
 
-app.get('/landingpaje_eventos', (_req, res) => {
-    res.render('landingpaje_eventos');
-});
-
 app.get('/eventos', EventoController.listarView);
-
 
 app.get('/eventos_inscritos', EventoController.eventosInscritos);
 
