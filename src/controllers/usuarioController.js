@@ -4,7 +4,9 @@ const usuarioController = {
     async criar(req, res) {
         try {
             const novoUsuario = await usuarioService.criarUsuario(req.body);
-            res.status(201).location(`/usuarios/${novoUsuario.id}`).json(novoUsuario);
+            res.status(201)
+                .location(`/usuarios/${novoUsuario.id_usuario}`)
+                .json(novoUsuario);
         } catch (error) {
             res.status(400).json({ erro: 'Erro ao criar usuário', detalhes: error.message });
         }
