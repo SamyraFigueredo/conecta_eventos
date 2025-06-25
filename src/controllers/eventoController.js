@@ -75,7 +75,7 @@ const EventoController = {
     },
 
     criarView(req, res) {
-        res.render('criarEvento');
+        res.render('criar_evento');
     }
 };
 
