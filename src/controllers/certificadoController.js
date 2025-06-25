@@ -1,3 +1,5 @@
+const path = require('path');
+const fs = require('fs');
 const service = require('../services/certificadoService.js');
 
 const criar = async (req, res) => {
@@ -64,6 +66,30 @@ const deletar = async (req, res) => {
     }
 };
 
+// NOVO MÉTODO - Download do certificado
+const baixarCertificado = async (req, res) => {
+    try {
+        const { eventoId } = req.params;
+        const usuarioId = req.user?.id_usuario || req.query.userId; // adaptável
+
+        if (!usuarioId) {
+            return res.status(400).json({ error: 'Usuário não identificado.' });
+        }
+
+        const nomeArquivo = `${usuarioId}_${eventoId}.pdf`;
+        const caminho = path.join(__dirname, '..', 'certificados', nomeArquivo);
+
+        if (!fs.existsSync(caminho)) {
+            return res.status(404).json({ error: 'Certificado não encontrado.' });
+        }
+
+        res.download(caminho, `certificado_evento_${eventoId}.pdf`);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Erro ao baixar o certificado.' });
+    }
+};
+
 module.exports = {
     criar,
     listar,
@@ -71,4 +97,5 @@ module.exports = {
     buscarPorCodigo,
     atualizar,
     deletar,
+    baixarCertificado
 };

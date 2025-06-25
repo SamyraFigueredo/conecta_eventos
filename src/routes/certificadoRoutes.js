@@ -12,4 +12,7 @@ router.delete('/:id', controller.deletar);
 // Busca por código de validação
 router.get('/validar/:codigo', controller.buscarPorCodigo);
 
+// Rota para baixar certificado
+router.get('/download/:eventoId', controller.baixarCertificado);
+
 module.exports = router;
