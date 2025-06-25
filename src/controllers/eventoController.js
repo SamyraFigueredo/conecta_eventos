@@ -67,7 +67,12 @@ const EventoController = {
         } catch (error) {
             res.status(500).send('Erro ao carregar eventos');
         }
-    }
+    },
+
+    criarView(req, res) {
+    res.render('criarEvento');
+}
+
 };
 
 module.exports = EventoController;

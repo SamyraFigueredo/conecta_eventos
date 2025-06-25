@@ -6,57 +6,40 @@ const models = require('./src/models/associations.js');
 
 const app = express();
 
+// Middlewares para lidar com dados do corpo da requisição
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Configuração do mecanismo de visualização (EJS)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src', 'views'));
 
+// Arquivos estáticos (ex: CSS, JS, imagens)
 app.use(express.static(path.join(__dirname, 'src/public')));
 
-// Rotas
+// Importação das rotas
 const usuarioRoutes = require('./src/routes/usuarioRoutes.js');
 const authRoutes = require('./src/routes/authRoutes.js');
 const eventoRoutes = require('./src/routes/eventoRoutes.js');
 const programacaoRoutes = require('./src/routes/programacaoRoutes.js');
+
+// Importação de controladores
+const EventoController = require('./src/controllers/eventoController.js');
 
 app.use('/usuarios', usuarioRoutes);
 app.use('/auth', authRoutes);
 app.use('/eventos', eventoRoutes);
 app.use('/programacoes', programacaoRoutes);
 
-// Importar controller para rota de view com dados
-const EventoController = require('./src/controllers/eventoController.js');
+app.get('/', (req, res) => res.render('index'));
 
-// Rota principal que renderiza a view index.ejs
-app.get('/', (req, res) => {
-    res.render('index');
-});
+app.get('/auth/login', (req, res) => res.render('login'));
+app.get('/cadastro', (req, res) => res.render('cadastro'));
+app.get('/recuperar', (req, res) => res.render('recuperar'));
+app.get('/emitir_certificados', (_req, res) => res.render('emitir_certificados'));
 
-app.get('/auth/login', (req, res) => {
-    res.render('login');
-});
-
-app.get('/cadastro', (req, res) => {
-    res.render('cadastro');
-});
-
-app.get('/recuperar', (req, res) => {
-    res.render('recuperar'); // recuperar.ejs deve estar na pasta views/
-});
-
-app.use('/eventos', eventoRoutes);
-
-app.get('/criar', (req, res) => {
-    res.render('criar_evento');
-});
-
+app.get('/eventos/criarEvento', EventoController.criarView);
 app.get('/eventos_inscritos', EventoController.eventosInscritos);
-
-app.get('/emitir_certificados', (_req, res) => {
-    res.render('emitir_certificados');
-});
-
 
 const PORT = process.env.PORT || 3000;
 
@@ -64,7 +47,7 @@ sequelize.sync({ force: false })
     .then(() => {
         console.log('🟢 Banco sincronizado com sucesso');
         app.listen(PORT, () => {
-            console.log(`🚀 Servidor rodando na porta ${PORT}`);
+            console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
         });
     })
     .catch((err) => {
