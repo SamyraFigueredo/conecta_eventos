@@ -2,6 +2,7 @@ const { Usuario } = require('../models/associations');
 const bcrypt = require('bcrypt');
 
 const usuarioService = {
+    // Cria um novo usuário
     async criarUsuario(dadosUsuario) {
         const { senha, ...outrosDados } = dadosUsuario;
 
@@ -17,18 +18,28 @@ const usuarioService = {
         });
     },
 
+    // Lista todos os usuários
     async listarUsuarios() {
-        return Usuario.findAll();
+        return Usuario.findAll({
+            attributes: ['id_usuario', 'nome_usuario', 'email_usuario', 'tipo_usuario']
+        });
     },
 
+    // Busca por ID
     async buscarUsuarioPorId(id) {
-        return Usuario.findByPk(id);
+        return Usuario.findByPk(id, {
+            attributes: ['id_usuario', 'nome_usuario', 'email_usuario', 'tipo_usuario']
+        });
     },
 
+    // Busca por e-mail
     async buscarUsuarioPorEmail(email) {
-        return Usuario.findOne({ where: { email_usuario: email } });
+        return Usuario.findOne({
+            where: { email_usuario: email }
+        });
     },
 
+    // Atualiza um usuário
     async atualizarUsuario(id, dadosAtualizados) {
         const usuario = await Usuario.findByPk(id);
         if (!usuario) return null;
@@ -42,6 +53,7 @@ const usuarioService = {
         return usuario;
     },
 
+    // Exclui um usuário
     async deletarUsuario(id) {
         const usuario = await Usuario.findByPk(id);
         if (!usuario) return null;

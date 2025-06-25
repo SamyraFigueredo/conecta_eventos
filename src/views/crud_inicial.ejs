@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Início - Conecta Eventos</title>
   <style>
     * {
@@ -101,7 +102,7 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 180px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
     .card-icon {
@@ -155,6 +156,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -165,8 +167,9 @@
     <nav>
       <a href="/" class="active">Home</a>
       <a href="/eventos">Eventos</a>
-      <a href="/criar">Criar Eventos</a>
-      <a href="/inscritos">Eventos Inscritos</a>
+      <a href="/eventos/criarEvento">Criar Eventos</a>
+      <a href="/eventos_inscritos">Eventos Inscritos</a>
+      <a href="/auth/login">Login</a>
     </nav>
     <button class="btn-sair" onclick="logout()">Sair</button>
   </header>
@@ -191,21 +194,21 @@
         <div class="card-icon">📍</div>
         <div class="card-title">Eventos Inscritos</div>
         <div class="card-text">Veja em quais eventos você está participando.</div>
-        <button onclick="navigateTo('/inscritos')">Ver ➔</button>
+        <button onclick="navigateTo('/eventos_inscritos')">Ver ➔</button>
       </div>
 
       <div class="card" data-keywords="criar evento novo">
         <div class="card-icon">🎤</div>
         <div class="card-title">Criar Evento</div>
         <div class="card-text">Organize um novo evento.</div>
-        <button onclick="navigateTo('/criar')">Criar ➔</button>
+        <button onclick="navigateTo('/eventos/criarEvento')">Criar ➔</button>
       </div>
 
       <div class="card" data-keywords="gerenciar editar eventos">
         <div class="card-icon">📋</div>
         <div class="card-title">Gerenciar Eventos</div>
         <div class="card-text">Edite os eventos que você criou.</div>
-        <button onclick="navigateTo('/gerenciar')">Gerenciar ➔</button>
+        <button onclick="navigateTo('/eventos')">Gerenciar ➔</button>
       </div>
     </div>
   </main>
@@ -216,8 +219,10 @@
     }
 
     function logout() {
-      // Lógica de logout pode ser adicionada aqui
-      window.location.href = '/login';
+      // Aqui você pode chamar sua rota de logout, por exemplo:
+      // fetch('/auth/logout', { method: 'POST' }).then(() => window.location.href = '/auth/login');
+      // Por enquanto, redireciona para a tela de login
+      window.location.href = '/auth/login';
     }
 
     function filterCards() {
@@ -235,4 +240,5 @@
   </script>
 
 </body>
+
 </html>

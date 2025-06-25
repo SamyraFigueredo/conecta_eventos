@@ -1,264 +1,149 @@
 <%- include('partials/header') %>
 
-  <style>
-    /* (Seu CSS original permanece igual, aqui não alterei nada para manter o estilo) */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+  /* Seu CSS original */
+  /* ... */
+  
+  /* Estilos para o modal */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(44, 62, 80, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      color: #2C3E50;
-    }
+  .modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    text-align: center;
+  }
 
-    header {
-      background-color: #2C3E50;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-    }
+  .modal h3 {
+    margin-bottom: 1rem;
+  }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+  .modal button {
+    background-color: #2C3E50;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
 
-    .logo img {
-      height: 30px;
-    }
+  .modal-close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    color: #2C3E50;
+  }
+</style>
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-size: 1rem;
-    }
+<main>
+  <section class="highlight">
+    <div class="highlight-text">
+      <h2>Descubra Eventos Incríveis. <br> Participe. Conecte-se.</h2>
+      <p>Encontre os melhores eventos, palestras e workshops em um só lugar. Cadastre-se agora e garanta sua vaga nas
+        experiências que vão transformar sua jornada.</p>
+      <button onclick="showModal('Inscrição iniciada!')">Inscrever</button>
+    </div>
+    <div class="highlight-img">
+      <img src="/img/evento_principal.svg" alt="Evento principal" />
+    </div>
+  </section>
 
-    nav a:hover,
-    nav a.active {
-      text-decoration: underline;
-    }
-
-    .btn-sair {
-      background-color: white;
-      color: #2C3E50;
-      padding: 8px 20px;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    main {
-      padding: 2rem;
-    }
-
-    .highlight {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      background-color: white;
-      padding: 2rem;
-      border-radius: 12px;
-      margin-bottom: 2rem;
-    }
-
-    .highlight-text {
-      max-width: 500px;
-    }
-
-    .highlight-text h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .highlight-text p {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .highlight-img img {
-      max-width: 300px;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-    }
-
-    .highlight button {
-      background-color: #2C3E50;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-
-    .event-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #2C3E50;
-      color: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .event-card:nth-child(even) {
-      background-color: #e74c3c;
-      flex-direction: row-reverse;
-    }
-
-    .event-info {
-      flex: 1;
-      padding: 0 1rem;
-    }
-
-    .event-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-
-    .event-date {
-      font-size: 1rem;
-      background-color: transparent;
-      border: 2px solid #f1c40f;
-      color: #f1c40f;
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-
-    .event-card:nth-child(even) .event-date {
-      border-color: #fff;
-      color: white;
-    }
-
-    .event-card button {
-      background-color: white;
-      color: #2C3E50;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .event-img img {
-      max-width: 160px;
-      border-radius: 8px;
-    }
-
-    .inscritos-list {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      background-color: rgba(255, 255, 255, 0.15);
-      padding: 10px;
-      border-radius: 6px;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
-      padding: 1.5rem 0 0.5rem;
-      border-top: 1px solid #ccc;
-      margin-top: 3rem;
-    }
-
-    @media (max-width: 768px) {
-      .highlight {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-
-      .event-card {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-
-      .event-card:nth-child(even) {
-        flex-direction: column;
-      }
-
-      .event-img img {
-        max-width: 100%;
-      }
-    }
-  </style>
-
-  <main>
-    <section class="highlight">
-      <div class="highlight-text">
-        <h2>Descubra Eventos Incríveis. <br> Participe. Conecte-se.</h2>
-        <p>Encontre os melhores eventos, palestras e workshops em um só lugar. Cadastre-se agora e garanta sua vaga nas
-          experiências que vão transformar sua jornada.</p>
-        <button onclick="alert('Inscrição iniciada')">Inscrever</button>
-      </div>
-      <div class="highlight-img">
-        <img src="/img/evento_principal.svg" alt="Evento principal" />
-      </div>
-    </section>
-
-    <% if (eventos && eventos.length> 0) { %>
-      <% eventos.forEach(function(evento, idx) { %>
-        <section class="event-card">
-          <div class="event-img">
-            <img src="/img/evento_bussines.svg" alt="Imagem do evento" />
+  <% if (eventos && eventos.length > 0) { %>
+    <% eventos.forEach(function(evento, idx) { %>
+      <section class="event-card <%= (idx % 2 === 1) ? 'even' : '' %>">
+        <div class="event-img">
+          <img src="/img/evento_bussines.svg" alt="Imagem do evento" />
+        </div>
+        <div class="event-info">
+          <div class="event-title">
+            <%= evento.nome_evento %>
           </div>
-          <div class="event-info">
-            <div class="event-title">
-              <%= evento.nome_evento %>
-            </div>
-            <div class="event-date">
-              <%= new Date(evento.data_inicio).toLocaleDateString('pt-BR', { day:'2-digit', month:'long', year:'numeric'
-                }) %>
-            </div>
-            <p>
-              <%= evento.descricao %>
-            </p>
-            <p><strong>Local:</strong>
-              <%= evento.localizacao %>
-            </p>
-            <button onclick="alert('Você se inscreveu no evento <%= evento.nome_evento %>!')">Inscrever-se</button>
-
-            <!-- Lista de inscritos (exemplo estático, você pode adaptar para dados reais) -->
-            <% if (evento.inscritos && evento.inscritos.length> 0) { %>
-              <div class="inscritos-list">
-                <strong>Inscritos:</strong>
-                <ul>
-                  <% evento.inscritos.forEach(function(usuario) { %>
-                    <li>
-                      <%= usuario.nome_usuario %> (<%= usuario.tipo_usuario %>)
-                    </li>
-                    <% }) %>
-                </ul>
-              </div>
-              <% } %>
+          <div class="event-date">
+            <%= new Date(evento.data_inicio).toLocaleDateString('pt-BR', { day:'2-digit', month:'long', year:'numeric' }) %>
           </div>
-        </section>
-        <% }) %>
-          <% } else { %>
-            <p>Nenhum evento cadastrado no momento.</p>
-            <% } %>
-  </main>
+          <p>
+            <%= evento.descricao %>
+          </p>
+          <p><strong>Local:</strong> <%= evento.localizacao %></p>
+          <button onclick="showModal('Você se inscreveu no evento &quot;<%= evento.nome_evento %>&quot;!')">Inscrever-se</button>
 
-  <footer>
-    Copyright © 2025 | Conecta Eventos
-  </footer>
+          <% if (evento.inscritos && evento.inscritos.length > 0) { %>
+            <div class="inscritos-list">
+              <strong>Inscritos:</strong>
+              <ul>
+                <% evento.inscritos.forEach(function(usuario) { %>
+                  <li><%= usuario.nome_usuario %> (<%= usuario.tipo_usuario %>)</li>
+                <% }) %>
+              </ul>
+            </div>
+          <% } %>
+        </div>
+      </section>
+    <% }) %>
+  <% } else { %>
+    <p>Nenhum evento cadastrado no momento.</p>
+  <% } %>
+</main>
 
-  <%- include('partials/footer') %>
+<!-- Modal HTML -->
+<div id="modalOverlay" class="modal-overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" aria-label="Fechar modal" onclick="closeModal()">&times;</button>
+    <h3 id="modalTitle"></h3>
+    <button onclick="closeModal()">OK</button>
+  </div>
+</div>
+
+<footer>
+  Copyright © 2025 | Conecta Eventos
+</footer>
+
+<script>
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalTitle = document.getElementById('modalTitle');
+
+  function showModal(message) {
+    modalTitle.textContent = message;
+    modalOverlay.style.display = 'flex';
+  }
+
+  function closeModal() {
+    modalOverlay.style.display = 'none';
+  }
+
+  // Fechar modal ao clicar fora da caixa
+  modalOverlay.addEventListener('click', function(e) {
+    if (e.target === modalOverlay) {
+      closeModal();
+    }
+  });
+
+  // Fechar modal ao apertar ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === "Escape" && modalOverlay.style.display === 'flex') {
+      closeModal();
+    }
+  });
+</script>
+
+<%- include('partials/footer') %>

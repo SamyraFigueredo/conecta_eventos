@@ -50,12 +50,17 @@
 
     .btn-entrar {
       background-color: white;
-      color: #2C3E50;
+      color: #2c3e50;
       padding: 8px 20px;
       border: none;
       border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-entrar:hover {
+      background-color: #e0e0e0;
     }
 
     .container {
@@ -74,17 +79,22 @@
     .texto-principal h1 {
       font-size: 2.5rem;
       margin-bottom: 2rem;
-      color: #2C3E50;
+      color: #2c3e50;
     }
 
     .texto-principal button {
       padding: 12px 40px;
       font-size: 1rem;
       border: none;
-      background-color: #2C3E50;
+      background-color: #2c3e50;
       color: white;
       border-radius: 8px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .texto-principal button:hover {
+      background-color: #1f2e3a;
     }
 
     .imagem-conteudo {
@@ -149,13 +159,13 @@
       <a href="/eventos/criarEvento">Criar Eventos</a>
       <a href="/eventos_inscritos">Eventos Inscritos</a>
     </nav>
-    <button class="btn-entrar">Entrar</button>
+    <button class="btn-entrar" onclick="window.location.href='/auth/login'">Entrar</button>
   </header>
 
   <main class="container">
     <div class="texto-principal">
       <h1>Simplifique a Gestão dos seus Eventos</h1>
-      <button>Entrar</button>
+      <button onclick="window.location.href='/auth/login'">Entrar</button>
     </div>
     <div class="imagem-conteudo">
       <div class="card">
@@ -163,7 +173,7 @@
         <p>Organize eventos com facilidade e eficiência. Chega de planilhas e confusão! Tenha tudo o que você precisa em
           um só lugar.</p>
       </div>
-      <img src="../public/Mockup_landigpage.svg" alt="Celular com imagem de evento" class="phone" />
+      <img src="/images/Mockup_landigpage.svg" alt="Celular com imagem de evento" class="phone" />
       <div class="card">
         <h3>Crie. Gerencie. Compartilhe</h3>
         <ul>

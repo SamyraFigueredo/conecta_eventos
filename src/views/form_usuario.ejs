@@ -2,12 +2,28 @@
 
 <h2><%= usuario ? 'Editar Usuário' : 'Cadastrar Novo Usuário' %></h2>
 
-<form action="<%= usuario ? '/usuarios/editar/' + usuario.id : '/usuarios/novo' %>" method="POST">
+<form action="<%= usuario ? '/usuarios/' + usuario.id : '/usuarios' %>" method="POST">
     <label>Nome:</label><br>
-    <input type="text" name="nome" value="<%= usuario ? usuario.nome : '' %>" required><br><br>
+    <input type="text" name="nome_usuario" value="<%= usuario ? usuario.nome_usuario : '' %>" required><br><br>
 
     <label>Email:</label><br>
-    <input type="email" name="email" value="<%= usuario ? usuario.email : '' %>" required><br><br>
+    <input type="email" name="email_usuario" value="<%= usuario ? usuario.email_usuario : '' %>" required><br><br>
+
+    <label>Senha:</label><br>
+    <% if (!usuario) { %>
+        <input type="password" name="senha" required><br><br>
+    <% } else { %>
+        <small>Deixe em branco para manter a senha atual</small><br><br>
+        <input type="password" name="senha"><br><br>
+    <% } %>
+
+    <label>Tipo de Usuário:</label><br>
+    <select name="tipo_usuario" required>
+        <option value="" disabled <%= !usuario ? 'selected' : '' %>>Selecione o tipo</option>
+        <option value="organizador" <%= usuario && usuario.tipo_usuario === 'organizador' ? 'selected' : '' %>>Organizador</option>
+        <option value="participante" <%= usuario && usuario.tipo_usuario === 'participante' ? 'selected' : '' %>>Participante</option>
+        <option value="ministrante" <%= usuario && usuario.tipo_usuario === 'ministrante' ? 'selected' : '' %>>Ministrante</option>
+    </select><br><br>
 
     <button type="submit" style="padding:0.5rem 1rem; background-color:#2c3e50; color:white; border:none; border-radius:5px;">
         Salvar

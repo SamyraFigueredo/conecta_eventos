@@ -33,6 +33,11 @@ const EventoController = {
 
     async criar(req, res) {
         try {
+            // Se existir arquivo enviado, adiciona o caminho da imagem ao corpo
+            if (req.file) {
+                req.body.imagem = req.file.path.replace(/\\/g, '/'); // normaliza barras para URL
+            }
+
             const novoEvento = await EventoService.criar(req.body);
             res.status(201).json(novoEvento);
         } catch (error) {
@@ -70,9 +75,8 @@ const EventoController = {
     },
 
     criarView(req, res) {
-    res.render('criarEvento');
-}
-
+        res.render('criarEvento');
+    }
 };
 
 module.exports = EventoController;
